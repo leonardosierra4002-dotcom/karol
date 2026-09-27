@@ -1,689 +1,705 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Para Karol ❤️</title>
+<title>Para Karol ❤️</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
 
-    html {
-      scroll-behavior: smooth;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-      font-family: Georgia, "Times New Roman", serif;
-      background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8fa);
-      color: #4a2630;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    /* CORAZONES */
-    .heart {
-      position: fixed;
-      bottom: -30px;
-      font-size: 20px;
-      animation: subir 8s linear infinite;
-      opacity: 0.5;
-      z-index: 0;
-      pointer-events: none;
-    }
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: linear-gradient(135deg, #fff0f5, #ffe4ec, #fff8fa);
+    color: #4a2630;
+    min-height: 100vh;
+}
 
-    @keyframes subir {
-      0% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0;
-      }
+/* PORTADA */
 
-      20% {
-        opacity: 0.6;
-      }
+.portada {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+}
 
-      100% {
-        transform: translateY(-110vh) rotate(360deg);
-        opacity: 0;
-      }
-    }
+.portada-contenido {
+    max-width: 800px;
+}
 
-    /* PORTADA */
-    .portada {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 30px 20px;
-      position: relative;
-      z-index: 1;
-    }
+.corazon-grande {
+    font-size: 70px;
+    animation: latido 1.5s infinite;
+    margin-bottom: 20px;
+}
 
-    .portada-contenido {
-      max-width: 800px;
-      animation: aparecer 2s ease;
-    }
-
-    @keyframes aparecer {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .corazon-grande {
-      font-size: 70px;
-      animation: latido 1.5s infinite;
-      margin-bottom: 20px;
-    }
-
-    @keyframes latido {
-      0%, 100% {
+@keyframes latido {
+    0%,100% {
         transform: scale(1);
-      }
+    }
 
-      50% {
+    50% {
         transform: scale(1.15);
-      }
     }
+}
 
-    h1 {
-      font-size: clamp(42px, 10vw, 80px);
-      color: #c2185b;
-      margin-bottom: 15px;
-    }
+h1 {
+    font-size: clamp(45px, 10vw, 80px);
+    color: #c2185b;
+    margin-bottom: 20px;
+}
 
-    .subtitulo {
-      font-size: 21px;
-      line-height: 1.7;
-      max-width: 650px;
-      margin: auto;
-    }
+.subtitulo {
+    font-size: 20px;
+    line-height: 1.8;
+}
 
-    .boton {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 30px;
-      background: #c2185b;
-      color: white;
-      border-radius: 30px;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      font-weight: bold;
-      box-shadow: 0 8px 20px rgba(194, 24, 91, 0.25);
-      transition: 0.3s;
-    }
+.boton {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: #c2185b;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    transition: 0.3s;
+}
 
-    .boton:hover {
-      transform: translateY(-4px);
-      background: #ad1457;
-    }
+.boton:hover {
+    transform: translateY(-4px);
+    background: #ad1457;
+}
 
-    /* SECCIONES */
-    section {
-      padding: 80px 20px;
-      position: relative;
-      z-index: 1;
-    }
+/* SECCIONES */
 
-    .contenedor {
-      max-width: 1100px;
-      margin: auto;
-    }
+section {
+    padding: 80px 20px;
+}
 
-    .titulo-seccion {
-      text-align: center;
-      color: #c2185b;
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
+.contenedor {
+    max-width: 1100px;
+    margin: auto;
+}
 
-    .descripcion {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 50px;
-      line-height: 1.8;
-      font-size: 18px;
-    }
+.titulo-seccion {
+    text-align: center;
+    color: #c2185b;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
 
-    /* CARTA */
-    .carta {
-      background: rgba(255,255,255,0.92);
-      padding: 45px;
-      border-radius: 25px;
-      box-shadow: 0 15px 40px rgba(100,30,50,0.12);
-      line-height: 1.9;
-      font-size: 18px;
-      border: 1px solid rgba(194,24,91,0.12);
-    }
+.descripcion {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+    line-height: 1.8;
+    font-size: 18px;
+}
 
-    .carta p {
-      margin-bottom: 20px;
-    }
+/* CARTA */
 
-    .firma {
-      text-align: right;
-      font-style: italic;
-      color: #c2185b;
-      font-size: 22px;
-      margin-top: 30px;
-    }
+.carta {
+    background: white;
+    padding: 45px;
+    border-radius: 25px;
+    box-shadow: 0 15px 40px rgba(100,30,50,0.12);
+    line-height: 1.9;
+    font-size: 18px;
+}
 
-    /* CANCIÓN */
-    .cancion-box {
-      max-width: 550px;
-      margin: 35px auto 0;
-      background: rgba(255,255,255,0.92);
-      padding: 35px 25px;
-      border-radius: 25px;
-      text-align: center;
-      box-shadow: 0 15px 40px rgba(100,30,50,0.12);
-    }
+.carta p {
+    margin-bottom: 20px;
+}
 
-    .nota-musical {
-      font-size: 65px;
-      margin-bottom: 15px;
-    }
+.firma {
+    text-align: right;
+    color: #c2185b;
+    font-size: 21px;
+    font-style: italic;
+}
 
-    .cancion-box h3 {
-      color: #c2185b;
-      font-size: 26px;
-      margin-bottom: 15px;
-    }
+/* CANCIÓN */
 
-    .cancion-box p {
-      line-height: 1.7;
-      margin-bottom: 20px;
-    }
+.cancion-box {
+    max-width: 550px;
+    margin: auto;
+    background: white;
+    padding: 35px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(100,30,50,0.12);
+}
 
-    /* GALERÍA */
+.nota-musical {
+    font-size: 65px;
+    margin-bottom: 15px;
+}
+
+.cancion-box h3 {
+    color: #c2185b;
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.cancion-box p {
+    line-height: 1.7;
+}
+
+/* GALERÍA */
+
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* TARJETA */
+
+.tarjeta {
+    height: 430px;
+    perspective: 1200px;
+    cursor: pointer;
+}
+
+.tarjeta-interior {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+/* ESTA ES LA PARTE QUE HACE EL VOLTEO */
+
+.tarjeta.volteada .tarjeta-interior {
+    transform: rotateY(180deg);
+}
+
+/* CARAS */
+
+.cara {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+    overflow: hidden;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    box-shadow: 0 12px 30px rgba(80,20,40,0.15);
+}
+
+/* FRENTE */
+
+.frente {
+    background: linear-gradient(145deg, #ffffff, #fff0f5);
+    border: 2px solid #f8bbd0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 30px;
+}
+
+.icono {
+    font-size: 65px;
+    margin-bottom: 25px;
+}
+
+.frente h3 {
+    color: #c2185b;
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.frente p {
+    line-height: 1.6;
+}
+
+.tocar {
+    margin-top: 25px;
+    color: #c2185b;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* PARTE DE ATRÁS */
+
+.atras {
+    background: white;
+    transform: rotateY(180deg);
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* FOTOS */
+
+.atras img {
+    width: 100%;
+    height: 75%;
+    object-fit: cover;
+    display: block;
+}
+
+.texto-foto {
+    height: 25%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 10px;
+
+    color: #c2185b;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* FINAL */
+
+.cierre {
+    text-align: center;
+}
+
+.cierre p {
+    max-width: 700px;
+    margin: auto;
+    font-size: 21px;
+    line-height: 1.8;
+}
+
+.corazon-final {
+    font-size: 60px;
+    margin-top: 30px;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #8e5264;
+    font-family: Arial, sans-serif;
+}
+
+/* CELULAR */
+
+@media (max-width: 800px) {
+
     .galeria {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 25px;
-      perspective: 1200px;
-    }
-
-    .tarjeta {
-      height: 430px;
-      cursor: pointer;
-      perspective: 1000px;
-    }
-
-    .tarjeta-interior {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.8s;
-      transform-style: preserve-3d;
-    }
-
-    .tarjeta.volteada .tarjeta-interior {
-      transform: rotateY(180deg);
-    }
-
-    .cara {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: 22px;
-      overflow: hidden;
-      box-shadow: 0 12px 30px rgba(80,20,40,0.15);
-    }
-
-    /* FRENTE */
-    .frente {
-      background: linear-gradient(145deg, #ffffff, #fff0f5);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 25px;
-      border: 2px solid #f8bbd0;
-    }
-
-    .icono {
-      font-size: 60px;
-      margin-bottom: 25px;
-    }
-
-    .frente h3 {
-      color: #c2185b;
-      font-size: 25px;
-      margin-bottom: 15px;
-    }
-
-    .frente p {
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    .tocar {
-      margin-top: 25px;
-      color: #c2185b;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    /* PARTE TRASERA */
-    .atras {
-      transform: rotateY(180deg);
-      background: white;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .atras img {
-      width: 100%;
-      height: 75%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .texto-foto {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 10px;
-      color: #c2185b;
-      font-weight: bold;
-      font-size: 17px;
-    }
-
-    /* CIERRE */
-    .cierre {
-      text-align: center;
-      padding-bottom: 100px;
-    }
-
-    .cierre p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 22px;
-      line-height: 1.8;
-    }
-
-    .corazon-final {
-      font-size: 55px;
-      margin-top: 30px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: #8e5264;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-    }
-
-    /* CELULAR */
-    @media (max-width: 800px) {
-
-      .galeria {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: auto;
-      }
-
-      .tarjeta {
-        height: 430px;
-      }
-
-      .carta {
-        padding: 28px 22px;
-        font-size: 17px;
-      }
-
-      section {
-        padding: 60px 18px;
-      }
-
-      .titulo-seccion {
-        font-size: 32px;
-      }
     }
-  </style>
+
+    .tarjeta {
+        height: 430px;
+    }
+
+    .carta {
+        padding: 28px 22px;
+    }
+
+    section {
+        padding: 60px 18px;
+    }
+
+    .titulo-seccion {
+        font-size: 32px;
+    }
+}
+
+</style>
 </head>
+
 
 <body>
 
-  <!-- CORAZONES -->
-  <div class="heart" style="left:10%; animation-delay:0s;">❤️</div>
-  <div class="heart" style="left:25%; animation-delay:2s;">💕</div>
-  <div class="heart" style="left:45%; animation-delay:4s;">❤️</div>
-  <div class="heart" style="left:65%; animation-delay:1s;">💗</div>
-  <div class="heart" style="left:85%; animation-delay:3s;">💕</div>
 
+<!-- ==================== PORTADA ==================== -->
 
-  <!-- PORTADA -->
-  <section class="portada">
+<section class="portada">
 
     <div class="portada-contenido">
 
-      <div class="corazon-grande">❤️</div>
-
-      <h1>Para Karol</h1>
-
-      <p class="subtitulo">
-        Hay personas que llegan a nuestra vida y, sin darse cuenta,
-        terminan ocupando un lugar que nadie más puede ocupar.
-      </p>
-
-      <a href="#carta" class="boton">
-        Leer la carta 💌
-      </a>
-
-    </div>
-
-  </section>
-
-
-  <!-- CARTA -->
-  <section id="carta">
-
-    <div class="contenedor">
-
-      <h2 class="titulo-seccion">
-        Una carta para ti 💌
-      </h2>
-
-      <div class="carta">
-
-        <p>
-          Karol,
-        </p>
-
-        <p>
-          No sé exactamente en qué momento te convertiste en alguien tan
-          importante para mí. Solo sé que pasó. Poco a poco, entre
-          conversaciones, momentos, risas y todo aquello que hemos vivido,
-          terminaste dejando una huella muy especial en mi corazón.
-        </p>
-
-        <p>
-          Hay cosas que quizá nunca sepa explicar completamente.
-          Esa conexión que siento cuando estamos juntos, la tranquilidad
-          de compartir contigo y esa sensación de que por un momento
-          todo lo demás deja de importar.
-        </p>
-
-        <p>
-          No quiero que estas palabras sean una presión ni una expectativa.
-          Solo quería que supieras que lo que siento por ti es sincero.
-          Que te quiero muchísimo y que valoro cada momento que hemos
-          compartido.
-        </p>
-
-        <p>
-          Tal vez la vida nos lleve por caminos que todavía no conocemos,
-          pero hay recuerdos que siempre voy a guardar con muchísimo cariño.
-          Y tú eres, sin duda, parte de ellos.
-        </p>
-
-        <p>
-          Gracias por haber llegado a mi vida y por todos esos pequeños
-          momentos que, para mí, significaron muchísimo.
-        </p>
-
-        <p class="firma">
-          Con mucho cariño ❤️<br>
-          Leonardo
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CANCIÓN -->
-  <section id="cancion">
-
-    <div class="contenedor">
-
-      <h2 class="titulo-seccion">
-        La canción que nos une 🎵❤️
-      </h2>
-
-      <p class="descripcion">
-        Porque hay canciones que tienen un significado diferente
-        cuando las escuchas pensando en alguien especial.
-      </p>
-
-      <div class="cancion-box">
-
-        <div class="nota-musical">
-          🎧
+        <div class="corazon-grande">
+            ❤️
         </div>
 
-        <h3>
-          Nuestra canción ❤️
-        </h3>
+        <h1>
+            Para Karol
+        </h1>
 
-        <p>
-          Esta canción queda guardada como parte de nuestra historia.
+        <p class="subtitulo">
+
+            Hay personas que llegan a nuestra vida
+            y terminan ocupando un lugar que nadie más
+            puede ocupar.
+
         </p>
 
-        <a
-          href="https://open.spotify.com/track/1hih4xsBd6rHYETs8wI79C?si=MswnZbXcQ7m-qyco-KbhTA&utm_source=copy-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="boton"
-        >
-          Escuchar nuestra canción 🎵
+        <a href="#carta" class="boton">
+            Leer la carta 💌
         </a>
 
-      </div>
-
     </div>
 
-  </section>
+</section>
 
 
-  <!-- MOMENTOS -->
-  <section id="momentos">
+<!-- ==================== CARTA ==================== -->
 
-    <div class="contenedor">
+<section id="carta">
 
-      <h2 class="titulo-seccion">
-        Momentos que guardo ❤️
-      </h2>
+<div class="contenedor">
 
-      <p class="descripcion">
-        Toca cada tarjeta para descubrir el recuerdo que hay detrás.
-      </p>
+<h2 class="titulo-seccion">
+    Una carta para ti 💌
+</h2>
 
+<div class="carta">
 
-      <div class="galeria">
+<p>
+    Karol,
+</p>
 
+<p>
+    No sé exactamente en qué momento te convertiste
+    en alguien tan importante para mí. Solo sé que pasó.
+    Poco a poco, entre conversaciones, momentos, risas
+    y todo aquello que hemos vivido, terminaste dejando
+    una huella muy especial en mi corazón.
+</p>
 
-        <!-- FOTO 1 -->
-        <div class="tarjeta" onclick="voltear(this)">
+<p>
+    Hay cosas que quizá nunca sepa explicar completamente.
+    Esa conexión que siento cuando estamos juntos,
+    la tranquilidad de compartir contigo y esa sensación
+    de que por un momento todo lo demás deja de importar.
+</p>
 
-          <div class="tarjeta-interior">
+<p>
+    No quiero que estas palabras sean una presión
+    ni una expectativa. Solo quería que supieras
+    que lo que siento por ti es sincero.
+</p>
 
-            <div class="cara frente">
+<p>
+    Te quiero muchísimo y valoro cada momento
+    que hemos compartido.
+</p>
 
-              <div class="icono">📸</div>
+<p>
+    Tal vez la vida nos lleve por caminos que todavía
+    no conocemos, pero hay recuerdos que siempre voy
+    a guardar con muchísimo cariño.
+</p>
 
-              <h3>
-                Nuestra primera foto
-              </h3>
+<p>
+    Y tú eres, sin duda, parte de ellos.
+</p>
 
-              <p>
-                Un momento que siempre voy a guardar
-                con muchísimo cariño.
-              </p>
+<p>
+    Gracias por haber llegado a mi vida y por todos
+    esos pequeños momentos que para mí significaron
+    muchísimo.
+</p>
 
-              <div class="tocar">
-                Toca para descubrir ❤️
-              </div>
+<p class="firma">
+    Con mucho cariño ❤️
+    <br><br>
+    Leonardo
+</p>
 
-            </div>
+</div>
 
-            <div class="cara atras">
+</div>
 
-              <img
-                src="WhatsApp Image 2026-09-27 at 2.24.14 AMzzz.jpeg"
-                alt="Nuestra primera foto"
-              >
+</section>
 
-              <div class="texto-foto">
-                Nuestra primera foto ❤️
-              </div>
 
-            </div>
+<!-- ==================== CANCIÓN ==================== -->
 
-          </div>
+<section id="cancion">
 
-        </div>
+<div class="contenedor">
 
+<h2 class="titulo-seccion">
+    La canción que nos une 🎵❤️
+</h2>
 
-        <!-- FOTO 2 -->
-        <div class="tarjeta" onclick="voltear(this)">
+<p class="descripcion">
+    Porque hay canciones que tienen un significado
+    diferente cuando las escuchas pensando
+    en alguien especial.
+</p>
 
-          <div class="tarjeta-interior">
 
-            <div class="cara frente">
+<div class="cancion-box">
 
-              <div class="icono">💭</div>
+<div class="nota-musical">
+    🎧
+</div>
 
-              <h3>
-                Un recuerdo que nunca quiero olvidar
-              </h3>
+<h3>
+    Nuestra canción ❤️
+</h3>
 
-              <p>
-                Porque algunos momentos se quedan
-                para siempre en el corazón.
-              </p>
+<p>
+    Una canción que queda guardada
+    como parte de nuestra historia.
+</p>
 
-              <div class="tocar">
-                Toca para descubrir ❤️
-              </div>
+<a
+href="https://open.spotify.com/track/1hih4xsBd6rHYETs8wI79C?si=MswnZbXcQ7m-qyco-KbhTA&utm_source=copy-link"
+target="_blank"
+rel="noopener noreferrer"
+class="boton"
+>
+    Escuchar nuestra canción 🎵
+</a>
 
-            </div>
+</div>
 
-            <div class="cara atras">
+</div>
 
-              <img
-                src="WhatsApp Image 2026-09-27 at 2.28.20 AM ree.jpeg"
-                alt="Un recuerdo que nunca quiero olvidar"
-              >
+</section>
 
-              <div class="texto-foto">
-                Un recuerdo que nunca quiero olvidar ❤️
-              </div>
 
-            </div>
+<!-- ==================== MOMENTOS ==================== -->
 
-          </div>
+<section id="momentos">
 
-        </div>
+<div class="contenedor">
 
+<h2 class="titulo-seccion">
+    Momentos que guardo ❤️
+</h2>
 
-        <!-- FOTO 3 -->
-        <div class="tarjeta" onclick="voltear(this)">
+<p class="descripcion">
+    Toca cada tarjeta para descubrir
+    el recuerdo que hay detrás.
+</p>
 
-          <div class="tarjeta-interior">
 
-            <div class="cara frente">
+<div class="galeria">
 
-              <div class="icono">💗</div>
 
-              <h3>
-                Un recuerdo especial contigo
-              </h3>
+<!-- ================= FOTO 1 ================= -->
 
-              <p>
-                De esos momentos pequeños que terminan
-                significando muchísimo.
-              </p>
+<div class="tarjeta" onclick="voltear(this)">
 
-              <div class="tocar">
-                Toca para descubrir ❤️
-              </div>
+<div class="tarjeta-interior">
 
-            </div>
 
-            <div class="cara atras">
+<div class="cara frente">
 
-              <img
-                src="WhatsApp Image 2026-09-27 at 2.27.08 AM diaaa.jpeg"
-                alt="Un recuerdo especial contigo"
-              >
+<div class="icono">
+    📸
+</div>
 
-              <div class="texto-foto">
-                Un recuerdo especial contigo ❤️
-              </div>
+<h3>
+    Nuestra primera foto
+</h3>
 
-            </div>
+<p>
+    Un momento que siempre voy
+    a guardar con muchísimo cariño.
+</p>
 
-          </div>
+<div class="tocar">
+    Toca para descubrir ❤️
+</div>
 
-        </div>
+</div>
 
 
-      </div>
+<div class="cara atras">
 
-    </div>
+<img
+src="WhatsApp Image 2026-09-27 at 2.24.14 AMzzz.jpeg"
+alt="Nuestra primera foto"
+>
 
-  </section>
+<div class="texto-foto">
+    Nuestra primera foto ❤️
+</div>
 
+</div>
 
-  <!-- FINAL -->
-  <section class="cierre">
 
-    <div class="contenedor">
+</div>
 
-      <h2 class="titulo-seccion">
-        Y todavía quedan recuerdos por crear... ✨
-      </h2>
+</div>
 
-      <p>
-        Porque aunque no sé qué nos tenga preparado la vida,
-        me quedo con todo lo bonito que hemos vivido,
-        con las sonrisas, las conversaciones y esos momentos
-        que hicieron que todo valiera la pena.
-      </p>
 
-      <div class="corazon-final">
-        ❤️
-      </div>
+<!-- ================= FOTO 2 ================= -->
 
-    </div>
+<div class="tarjeta" onclick="voltear(this)">
 
-  </section>
+<div class="tarjeta-interior">
 
 
-  <footer>
+<div class="cara frente">
+
+<div class="icono">
+    💭
+</div>
+
+<h3>
+    Un recuerdo que nunca quiero olvidar
+</h3>
+
+<p>
+    Porque algunos momentos
+    se quedan para siempre
+    en el corazón.
+</p>
+
+<div class="tocar">
+    Toca para descubrir ❤️
+</div>
+
+</div>
+
+
+<div class="cara atras">
+
+<img
+src="WhatsApp Image 2026-09-27 at 2.28.20 AM ree.jpeg"
+alt="Un recuerdo que nunca quiero olvidar"
+>
+
+<div class="texto-foto">
+    Un recuerdo que nunca quiero olvidar ❤️
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ================= FOTO 3 ================= -->
+
+<div class="tarjeta" onclick="voltear(this)">
+
+<div class="tarjeta-interior">
+
+
+<div class="cara frente">
+
+<div class="icono">
+    💗
+</div>
+
+<h3>
+    Un recuerdo especial contigo
+</h3>
+
+<p>
+    De esos momentos pequeños
+    que terminan significando muchísimo.
+</p>
+
+<div class="tocar">
+    Toca para descubrir ❤️
+</div>
+
+</div>
+
+
+<div class="cara atras">
+
+<img
+src="WhatsApp Image 2026-09-27 at 2.27.08 AM diaaa.jpeg"
+alt="Un recuerdo especial contigo"
+>
+
+<div class="texto-foto">
+    Un recuerdo especial contigo ❤️
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================== FINAL ==================== -->
+
+<section class="cierre">
+
+<div class="contenedor">
+
+<h2 class="titulo-seccion">
+    Y todavía quedan recuerdos por crear... ✨
+</h2>
+
+<p>
+    Porque aunque no sé qué nos tenga preparado
+    la vida, me quedo con todo lo bonito que hemos vivido,
+    con las sonrisas, las conversaciones y esos momentos
+    que hicieron que todo valiera la pena.
+</p>
+
+<div class="corazon-final">
+    ❤️
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
     Hecho con cariño para Karol ❤️
-  </footer>
+</footer>
 
 
-  <script>
+<!-- ==================== JAVASCRIPT ==================== -->
 
-    function voltear(tarjeta) {
-      tarjeta.classList.toggle("volteada");
-    }
+<script>
 
-  </script>
+function voltear(tarjeta) {
+
+    tarjeta.classList.toggle("volteada");
+
+}
+
+</script>
+
 
 </body>
 </html>
