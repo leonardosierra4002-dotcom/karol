@@ -1,0 +1,984 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Para Karol ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Georgia, "Times New Roman", serif;
+      background: #0d0710;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       FONDO
+    ========================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 70, 130, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 70%, rgba(180, 50, 255, 0.12), transparent 30%),
+        linear-gradient(135deg, #0d0710, #180914, #0b0610);
+      z-index: -2;
+    }
+
+    /* =========================
+       CORAZONES
+    ========================= */
+
+    .heart {
+      position: fixed;
+      bottom: -30px;
+      font-size: 20px;
+      animation: subir 8s linear forwards;
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.8;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* =========================
+       PORTADA
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px 20px;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: aparecer 2s ease;
+    }
+
+    .small-text {
+      color: #ff9bbd;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 {
+      font-size: clamp(60px, 15vw, 130px);
+      line-height: 0.9;
+      color: #fff;
+      text-shadow:
+        0 0 15px rgba(255, 100, 160, 0.5),
+        0 0 40px rgba(255, 50, 130, 0.25);
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: #ff719e;
+    }
+
+    .hero p {
+      font-size: 20px;
+      line-height: 1.7;
+      color: #e7cfd8;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .scroll {
+      display: inline-block;
+      margin-top: 45px;
+      padding: 13px 28px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 50px;
+      color: white;
+      text-decoration: none;
+      transition: .3s;
+    }
+
+    .scroll:hover {
+      background: #ff5d91;
+      border-color: #ff5d91;
+      transform: translateY(-3px);
+    }
+
+    /* =========================
+       SECCIONES
+    ========================= */
+
+    section {
+      padding: 90px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title span {
+      color: #ff729f;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+    }
+
+    .section-title h2 {
+      font-size: clamp(35px, 7vw, 55px);
+      margin-top: 10px;
+    }
+
+    .section-title p {
+      color: #c9b2bb;
+      margin-top: 15px;
+      font-size: 17px;
+    }
+
+    /* =========================
+       CARTA
+    ========================= */
+
+    .letter {
+      background: rgba(255,255,255,.055);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 25px;
+      padding: clamp(25px, 6vw, 55px);
+      box-shadow: 0 20px 80px rgba(0,0,0,.3);
+      backdrop-filter: blur(12px);
+      line-height: 1.9;
+      color: #eadce1;
+      font-size: 18px;
+    }
+
+    .letter p {
+      margin-bottom: 20px;
+    }
+
+    .letter .saludo {
+      color: #ff82aa;
+      font-size: 28px;
+      margin-bottom: 25px;
+    }
+
+    .firma {
+      margin-top: 35px;
+      text-align: right;
+      color: #ff9cbd;
+      font-size: 21px;
+      font-style: italic;
+    }
+
+    /* =========================
+       GALERÍA
+    ========================= */
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .photo {
+      height: 330px;
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #25101b, #4d182d);
+      border: 1px solid rgba(255,255,255,.1);
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: .5s;
+    }
+
+    .photo:hover img {
+      transform: scale(1.08);
+    }
+
+    .photo-text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 25px 15px 15px;
+      background: linear-gradient(transparent, rgba(0,0,0,.85));
+      color: white;
+    }
+
+    .photo-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      color: #d7aeba;
+      font-size: 17px;
+    }
+
+    /* =========================
+       HISTORIA
+    ========================= */
+
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(#ff6f9d, transparent);
+    }
+
+    .moment {
+      width: 50%;
+      padding: 15px 35px;
+      position: relative;
+    }
+
+    .moment:nth-child(odd) {
+      text-align: right;
+    }
+
+    .moment:nth-child(even) {
+      margin-left: 50%;
+    }
+
+    .moment::after {
+      content: "♥️";
+      position: absolute;
+      top: 18px;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ff6797;
+      border-radius: 50%;
+      color: white;
+      font-size: 13px;
+      box-shadow: 0 0 20px rgba(255,80,130,.5);
+    }
+
+    .moment:nth-child(odd)::after {
+      right: -16px;
+    }
+
+    .moment:nth-child(even)::after {
+      left: -16px;
+    }
+
+    .moment-card {
+      background: rgba(255,255,255,.05);
+      padding: 25px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .moment-card h3 {
+      color: #ff82aa;
+      margin-bottom: 10px;
+    }
+
+    .moment-card p {
+      color: #cdbbc2;
+      line-height: 1.6;
+    }
+
+    /* =========================
+       SORPRESA
+    ========================= */
+
+    .surprise {
+      text-align: center;
+      padding: 60px 25px;
+      background:
+        radial-gradient(circle, rgba(255,90,140,.15), transparent 60%),
+        rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: 30px;
+    }
+
+    .gift {
+      font-size: 80px;
+      cursor: pointer;
+      display: inline-block;
+      transition: .4s;
+      margin: 20px;
+    }
+
+    .gift:hover {
+      transform: scale(1.15) rotate(5deg);
+    }
+
+    .surprise button {
+      border: none;
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: #ff6496;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: .3s;
+    }
+
+    .surprise button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,80,130,.3);
+    }
+
+    #surpriseMessage {
+      max-width: 650px;
+      margin: 30px auto 0;
+      font-size: 20px;
+      line-height: 1.8;
+      color: #f1dce4;
+      display: none;
+      animation: aparecer 1s ease;
+    }
+
+    /* =========================
+       FINAL
+    ========================= */
+
+    .final {
+      text-align: center;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .final-content {
+      max-width: 700px;
+    }
+
+    .final .heart-big {
+      font-size: 80px;
+      animation: latir 1.4s infinite;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .final h2 {
+      font-size: clamp(38px, 8vw, 65px);
+      margin-bottom: 25px;
+    }
+
+    .final h2 span {
+      color: #ff709d;
+    }
+
+    .final p {
+      color: #d3bec6;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px 50px;
+      color: #806d76;
+      font-size: 13px;
+    }
+
+    /* =========================
+       ANIMACIONES
+    ========================= */
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes latir {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.18);
+      }
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================= */
+
+    @media (max-width: 750px) {
+
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+
+      .photo {
+        height: 380px;
+      }
+
+      .timeline::before {
+        left: 15px;
+      }
+
+      .moment,
+      .moment:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding-left: 50px;
+        padding-right: 0;
+        text-align: left;
+      }
+
+      .moment::after,
+      .moment:nth-child(odd)::after,
+      .moment:nth-child(even)::after {
+        left: 0;
+        right: auto;
+      }
+
+      .letter {
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =====================================
+       PORTADA
+  ====================================== -->
+
+  <header class="hero">
+
+    <div class="hero-content">
+
+      <div class="small-text">
+        Una pequeña parte de lo que siento
+      </div>
+
+      <h1>
+        Para <span>Karol</span>
+      </h1>
+
+      <p>
+        Hay personas que llegan a nuestra vida sin avisar
+        y terminan ocupando un lugar que nadie más puede ocupar.
+        Esta página es para ti. ❤️
+      </p>
+
+      <a href="#carta" class="scroll">
+        Leer mi carta ↓
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- =====================================
+       CARTA
+  ====================================== -->
+
+  <section id="carta">
+
+    <div class="section-title">
+      <span>Con todo mi corazón</span>
+      <h2>Una carta para ti</h2>
+      <p>Hay cosas que a veces cuesta decir mirando a los ojos.</p>
+    </div>
+
+    <div class="letter">
+
+      <div class="saludo">
+        Mi querida Karol...
+      </div>
+
+      <p>
+        No sé exactamente en qué momento te convertiste en alguien
+        tan importante para mí. Solo sé que, poco a poco, empezaste
+        a ocupar un espacio muy especial dentro de mi corazón.
+      </p>
+
+      <p>
+        He pensado muchas veces en todo lo que hemos vivido, en nuestras
+        conversaciones, en nuestras risas y en esos pequeños momentos
+        que quizá para otras personas no significarían demasiado,
+        pero que para mí tienen un valor enorme.
+      </p>
+
+      <p>
+        Cuando estoy contigo siento algo difícil de explicar.
+        Es como si por un momento todo lo demás dejara de importar
+        y simplemente pudiera disfrutar de tenerte cerca.
+      </p>
+
+      <p>
+        No quiero que estas palabras sean una presión ni que esperes
+        algo de ellas. Solo quería que supieras que lo que siento
+        por ti es sincero.
+      </p>
+
+      <p>
+        Te extraño. Extraño tu forma de ser, nuestras conversaciones,
+        tus ocurrencias y esa manera tan tuya de hacer que algunos
+        momentos se sientan diferentes.
+      </p>
+
+      <p>
+        Tal vez la vida no siempre coloca las cosas en el momento
+        que nosotros queremos. Tal vez algunas historias necesitan
+        tiempo. Pero independientemente de lo que pase, me alegra
+        muchísimo haberte conocido.
+      </p>
+
+      <p>
+        Gracias por cada momento, por cada sonrisa y por cada recuerdo
+        que hemos construido. Algunos recuerdos se quedan con nosotros
+        incluso cuando las circunstancias cambian.
+      </p>
+
+      <p>
+        Y si algún día vuelves a preguntarte qué significaste para mí,
+        quiero que recuerdes esto:
+        <strong>fuiste, eres y siempre serás alguien muy especial
+        en mi historia.</strong>
+      </p>
+
+      <div class="firma">
+        Con mucho cariño,<br>
+        Leonardo ❤️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       GALERÍA
+  ====================================== -->
+
+  <section>
+
+    <div class="section-title">
+      <span>Nuestros recuerdos</span>
+      <h2>Momentos que guardo</h2>
+      <p>
+        Puedes reemplazar estas tarjetas por nuestras fotos.
+      </p>
+    </div>
+
+    <div class="gallery">
+
+      <div class="photo">
+
+        <!--
+          PARA AGREGAR UNA FOTO:
+
+          Reemplaza todo el contenido de este div por:
+
+          <img src="URL-DE-TU-FOTO" alt="Recuerdo">
+        -->
+
+        <div class="photo-placeholder">
+          📸<br><br>
+          Aquí puedes colocar<br>
+          nuestra primera foto.
+        </div>
+
+      </div>
+
+
+      <div class="photo">
+
+        <div class="photo-placeholder">
+          💕<br><br>
+          Un momento que<br>
+          nunca quiero olvidar.
+        </div>
+
+      </div>
+
+
+      <div class="photo">
+
+        <div class="photo-placeholder">
+          ✨<br><br>
+          Un recuerdo<br>
+          especial contigo.
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       NUESTRA HISTORIA
+  ====================================== -->
+
+  <section>
+
+    <div class="section-title">
+
+      <span>Un poquito de nosotros</span>
+
+      <h2>Nuestra historia</h2>
+
+      <p>
+        Porque algunas historias no necesitan tener un final
+        para haber sido importantes.
+      </p>
+
+    </div>
+
+
+    <div class="timeline">
+
+
+      <div class="moment">
+
+        <div class="moment-card">
+
+          <h3>El comienzo</h3>
+
+          <p>
+            El día en que empezamos a conocernos sin imaginar
+            todo lo que llegaríamos a sentir y compartir.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="moment">
+
+        <div class="moment-card">
+
+          <h3>La conexión</h3>
+
+          <p>
+            Esos momentos en los que simplemente estar juntos
+            hacía que todo se sintiera diferente.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="moment">
+
+        <div class="moment-card">
+
+          <h3>Los recuerdos</h3>
+
+          <p>
+            Conversaciones, risas, detalles y pequeños momentos
+            que terminaron convirtiéndose en grandes recuerdos.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="moment">
+
+        <div class="moment-card">
+
+          <h3>Lo que siento</h3>
+
+          <p>
+            Con el tiempo entendí que lo que sentía por ti
+            era mucho más especial de lo que imaginaba.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="moment">
+
+        <div class="moment-card">
+
+          <h3>Hoy</h3>
+
+          <p>
+            Hoy solo quiero que sepas que guardo todo lo vivido
+            con muchísimo cariño.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       SORPRESA
+  ====================================== -->
+
+  <section>
+
+    <div class="section-title">
+
+      <span>Hay algo más...</span>
+
+      <h2>Tengo una sorpresa</h2>
+
+      <p>
+        Pero tienes que descubrirla.
+      </p>
+
+    </div>
+
+
+    <div class="surprise">
+
+      <div class="gift" onclick="mostrarSorpresa()">
+        🎁
+      </div>
+
+      <br>
+
+      <button onclick="mostrarSorpresa()">
+        Abrir mi sorpresa ❤️
+      </button>
+
+      <div id="surpriseMessage">
+
+        Karol...
+
+        <br><br>
+
+        Si llegaste hasta aquí, quiero que sepas algo:
+
+        <br><br>
+
+        <strong>
+          No hice esta página para pedirte nada.
+          La hice simplemente porque quería dejarte
+          un pedacito de todo lo que llevo dentro.
+        </strong>
+
+        <br><br>
+
+        Gracias por haber sido parte de mi vida,
+        por los momentos compartidos y por todos
+        esos recuerdos que todavía me hacen sonreír.
+
+        <br><br>
+
+        ❤️
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================
+       FINAL
+  ====================================== -->
+
+  <section class="final">
+
+    <div class="final-content">
+
+      <div class="heart-big">
+        ❤️
+      </div>
+
+      <h2>
+        Siempre tendrás<br>
+        un lugar en <span>mi corazón</span>
+      </h2>
+
+      <p>
+        No sé qué caminos tomará la vida,
+        pero sí sé que me alegra haber coincidido contigo.
+        Gracias por existir y por haber dejado una huella
+        tan bonita en mi historia.
+      </p>
+
+      <br>
+
+      <p>
+        <strong>Con cariño, Leonardo.</strong>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+
+    Hecho con ❤️ especialmente para Karol
+
+  </footer>
+
+
+  <!-- =====================================
+       JAVASCRIPT
+  ====================================== -->
+
+  <script>
+
+    /* ============================
+       SORPRESA
+    ============================ */
+
+    function mostrarSorpresa() {
+
+      const mensaje = document.getElementById("surpriseMessage");
+
+      if (mensaje.style.display === "block") {
+
+        mensaje.style.display = "none";
+
+      } else {
+
+        mensaje.style.display = "block";
+
+        crearCorazones();
+
+      }
+
+    }
+
+
+    /* ============================
+       CORAZONES FLOTANDO
+    ============================ */
+
+    function crearCorazon() {
+
+      const heart = document.createElement("div");
+
+      heart.classList.add("heart");
+
+      const corazones = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "💞"
+      ];
+
+      heart.innerHTML =
+        corazones[Math.floor(Math.random() * corazones.length)];
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.fontSize =
+        (12 + Math.random() * 25) + "px";
+
+      heart.style.animationDuration =
+        (5 + Math.random() * 5) + "s";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+
+        heart.remove();
+
+      }, 10000);
+
+    }
+
+
+    function crearCorazones() {
+
+      for (let i = 0; i < 25; i++) {
+
+        setTimeout(() => {
+
+          crearCorazon();
+
+        }, i * 100);
+
+      }
+
+    }
+
+
+    /* ============================
+       CORAZONES AUTOMÁTICOS
+    ============================ */
+
+    setInterval(() => {
+
+      crearCorazon();
+
+    }, 1800);
+
+
+  </script>
+
+</body>
+</html>
